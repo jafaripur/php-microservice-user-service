@@ -1,7 +1,4 @@
-name: Composer (php-actions)
-uses: php-actions/composer@v6
-with:
-  php_version: 8.0
+name: CI
 
 on:
   push:
@@ -28,23 +25,37 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
-
-    - name: Cache Composer packages
-      id: composer-cache
+    - name: Cache Composer dependencies
       uses: actions/cache@v2
       with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php
+        path: /tmp/composer-cache
+        key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+        
+    - name: Validate composer.json and composer.lock
+      uses: php-actions/composer@v6
+      with:
+        - php_version: 8.0
+        - command: validate
+        - args: --strict
 
     - name: Install dependencies
-      run: composer install --no-progress -o -a
+      uses: php-actions/composer@v6
+      with:
+        - php_version: 8.0
+        - command: install
+        - args: -o -a
+        - progress: no
 
     - name: Run Psalm
-      run: composer run-script psalm
+      uses: php-actions/composer@v6
+      with:
+        - php_version: 8.0
+        - command: run-script
+        - args: psalm
 
     - name: Run PHPLint
-      run: composer run-script phplint
+      uses: php-actions/composer@v6
+      with:
+        - php_version: 8.0
+        - command: run-script
+        - args: phplint
