@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "436b24f63ec97f920343c0b1635bd065",
+    "content-hash": "cdd0665c0d38273f6ec2f68d61262abb",
     "packages": [
         {
             "name": "bunny/bunny",
