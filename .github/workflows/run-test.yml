@@ -43,6 +43,7 @@ jobs:
       with:
         php_version: 8.0
         command: install
+        php_extensions: amqp
         args: -o -a
         progress: no
 
