@@ -15,6 +15,12 @@
             "role": "Developer"
         }
     ],
+    "support": {
+        "email": "mjafaripur@yahoo.com",
+        "issues": "https://github.com/jafaripur/php-microservice-user-service/issues",
+        "source": "https://github.com/jafaripur/php-microservice-user-service",
+        "docs": "https://github.com/jafaripur/php-microservice-user-service/blob/master/README.md"
+    },
     "require": {
         "php" : "^8.0",
         "jafaripur/php-microservice": "dev-master"
@@ -29,13 +35,7 @@
         "phplint": "vendor/bin/phplint"
     },
     "suggest": {
-        "jafaripur/php-microservice-application": "Microservice application which this library created for calling thats method."
-    },
-    "support": {
-        "email": "mjafaripur@yahoo.com",
-        "issues": "https://github.com/jafaripur/php-microservice-user-service/issues",
-        "source": "https://github.com/jafaripur/php-microservice-user-service",
-        "docs": "https://github.com/jafaripur/php-microservice-user-service/blob/master/README.md"
+        "jafaripur/php-microservice-application": "Sample microservice application template using this library"
     },
     "autoload": {
         "psr-4": { "Araz\\Service\\User\\": "src/" }
