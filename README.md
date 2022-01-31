@@ -4,7 +4,9 @@ This library is written to easy use of micro service methods for interaction. Ea
 
 Sample application used this library:
 
-[jafaripur/php-microservice-application](https://github.com/jafaripur/php-microservice-application)
+Spiral framework: [jafaripur/php-microservice-application](https://github.com/jafaripur/php-microservice-application)
+
+Yii3 framework: [jafaripur/php-microservice-application-yii3](https://github.com/jafaripur/php-microservice-application-yii3)
 
 
 For more info check this microservice library:
