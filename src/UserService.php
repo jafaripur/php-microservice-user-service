@@ -28,15 +28,8 @@ final class UserService
         $this->queue = $queue;
     }
 
-    /**
-     * Listen to queue
-     *
-     * @param  string[] $consumers
-     * @return void
-     */
-    public function listen(array $consumers): void
-    {
-        $this->queue->getConsumer()->consume(0, $consumers);
+    public function getQueue(): Queue {
+        return $this->queue;
     }
 
     public function commands(): CommandSender
