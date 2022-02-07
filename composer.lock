@@ -307,12 +307,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jafaripur/php-microservice.git",
-                "reference": "0ad3583dba22bb4e92aa6b43b850567d37fbddb1"
+                "reference": "3daf088f4dd3c2563c91887ad8605f0ef6df377d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jafaripur/php-microservice/zipball/0ad3583dba22bb4e92aa6b43b850567d37fbddb1",
-                "reference": "0ad3583dba22bb4e92aa6b43b850567d37fbddb1",
+                "url": "https://api.github.com/repos/jafaripur/php-microservice/zipball/3daf088f4dd3c2563c91887ad8605f0ef6df377d",
+                "reference": "3daf088f4dd3c2563c91887ad8605f0ef6df377d",
                 "shasum": ""
             },
             "require": {
@@ -334,6 +334,7 @@
                 "ext-amqp": "Using native AMQP wrapper.",
                 "ext-msgpack": "Using for msgpack for payload serialize and unserialize.",
                 "jafaripur/php-microservice-application": "Sample microservice application template using this library with Spiral framework",
+                "jafaripur/php-microservice-application-yii2": "Sample microservice application template using this library with Yii2 framework",
                 "jafaripur/php-microservice-application-yii3": "Sample microservice application template using this library with Yii3 framework"
             },
             "default-branch": true,
@@ -367,7 +368,7 @@
                 "issues": "https://github.com/jafaripur/php-microservice/issues",
                 "source": "https://github.com/jafaripur/php-microservice"
             },
-            "time": "2022-02-07T14:40:40+00:00"
+            "time": "2022-02-07T16:58:26+00:00"
         },
         {
             "name": "psr/container",
