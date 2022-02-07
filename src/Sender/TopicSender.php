@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Araz\Service\User\Sender;
 
-use Araz\MicroService\Sender;
+use Araz\MicroService\Sender\Client;
 
 final class TopicSender
 {
@@ -17,20 +17,25 @@ final class TopicSender
         'userChanged' => 'user_changed',
     ];
 
-    private Sender $sender;
+    private Client $client;
 
-    public function __construct(Sender $sender)
+    public function __construct(Client $client)
     {
-        $this->sender = $sender;
+        $this->client = $client;
     }
 
-    public function userChanged(string $routingKey, mixed $data, ?int $delay = 0): string|null
+    public function userChanged(string $routingKey, mixed $data, int $delay = 0): mixed
     {
         if (!in_array($routingKey, self::ROUTING_KEYS, true)) {
             throw new \LogicException(sprintf('Routing key not available: %s', $routingKey));
         }
 
-        return $this->sender->topic(self::ACTIONS['userChanged'], $routingKey, $data, $delay);
+        return $this->client->topic()
+            ->setTopicName(self::ACTIONS['userChanged'])
+            ->setRoutingKey($routingKey)
+            ->setData($data)
+            ->setDelay($delay)
+            ->send();
     }
 
     public function getRoutingKeyUserTopicCreate(): string

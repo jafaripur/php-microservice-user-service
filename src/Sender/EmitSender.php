@@ -4,23 +4,27 @@ declare(strict_types=1);
 
 namespace Araz\Service\User\Sender;
 
-use Araz\MicroService\Sender;
+use Araz\MicroService\Sender\Client;
 
 final class EmitSender
 {
-    private Sender $sender;
+    private Client $client;
 
     public const ACTIONS = [
         'userLoggedIn' => 'user_logged_in',
     ];
 
-    public function __construct(Sender $sender)
+    public function __construct(Client $client)
     {
-        $this->sender = $sender;
+        $this->client = $client;
     }
 
-    public function userLoggedIn(mixed $data, ?int $delay = 0): string|null
+    public function userLoggedIn(mixed $data, int $delay = 0): mixed
     {
-        return $this->sender->emit(self::ACTIONS['userLoggedIn'], $data, $delay);
+        return $this->client->emit()
+            ->setTopicName(self::ACTIONS['userLoggedIn'])
+            ->setData($data)
+            ->setDelay($delay)
+            ->send();
     }
 }

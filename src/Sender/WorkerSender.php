@@ -4,29 +4,43 @@ declare(strict_types=1);
 
 namespace Araz\Service\User\Sender;
 
-use Araz\MicroService\Sender;
+use Araz\MicroService\Sender\Client;
 
 final class WorkerSender
 {
-    private Sender $sender;
+    private Client $client;
 
     public const ACTIONS = [
         'userProfileAnalysis' => ['user_service_worker', 'user_profile_analysis'],
         'userProfileUpdateNotification' => ['user_service_worker', 'user_profile_update_notification'],
     ];
 
-    public function __construct(Sender $sender)
+    public function __construct(Client $client)
     {
-        $this->sender = $sender;
+        $this->client = $client;
     }
 
-    public function userProfileAnalysis(mixed $data, ?int $priority = null, ?int $expiration = null, ?int $delay = 0): mixed
+    public function userProfileAnalysis(mixed $data, int $priority = 0, int $expiration = 0, int $delay = 0): mixed
     {
-        return $this->sender->worker(self::ACTIONS['userProfileAnalysis'][0], self::ACTIONS['userProfileAnalysis'][1], $data, $priority, $expiration, $delay);
+        return $this->client->worker()
+            ->setQueueName(self::ACTIONS['userProfileAnalysis'][0])
+            ->setJobName(self::ACTIONS['userProfileAnalysis'][1])
+            ->setData($data)
+            ->setPriority($priority)
+            ->setExpiration($expiration)
+            ->setDelay($delay)
+            ->send();
     }
 
-    public function userProfileUpdateNotification(mixed $data, ?int $priority = null, ?int $expiration = null, ?int $delay = 0): mixed
+    public function userProfileUpdateNotification(mixed $data, int $priority = 0, int $expiration = 0, int $delay = 0): mixed
     {
-        return $this->sender->worker(self::ACTIONS['userProfileUpdateNotification'][0], self::ACTIONS['userProfileUpdateNotification'][1], $data, $priority, $expiration, $delay);
+        return $this->client->worker()
+            ->setQueueName(self::ACTIONS['userProfileUpdateNotification'][0])
+            ->setJobName(self::ACTIONS['userProfileUpdateNotification'][1])
+            ->setData($data)
+            ->setPriority($priority)
+            ->setExpiration($expiration)
+            ->setDelay($delay)
+            ->send();
     }
 }
