@@ -28,7 +28,8 @@ final class UserService
         $this->queue = $queue;
     }
 
-    public function getQueue(): Queue {
+    public function getQueue(): Queue
+    {
         return $this->queue;
     }
 
