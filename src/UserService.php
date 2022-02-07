@@ -36,7 +36,7 @@ final class UserService
     public function commands(): CommandSender
     {
         if (!$this->command) {
-            $this->command = new CommandSender($this->queue->getSender());
+            $this->command = new CommandSender($this->queue->getClient());
         }
 
         return $this->command;
@@ -45,7 +45,7 @@ final class UserService
     public function emits(): EmitSender
     {
         if (!$this->emit) {
-            $this->emit = new EmitSender($this->queue->getSender());
+            $this->emit = new EmitSender($this->queue->getClient());
         }
 
         return $this->emit;
@@ -54,7 +54,7 @@ final class UserService
     public function topics(): TopicSender
     {
         if (!$this->topic) {
-            $this->topic = new TopicSender($this->queue->getSender());
+            $this->topic = new TopicSender($this->queue->getClient());
         }
 
         return $this->topic;
@@ -63,7 +63,7 @@ final class UserService
     public function workers(): WorkerSender
     {
         if (!$this->worker) {
-            $this->worker = new WorkerSender($this->queue->getSender());
+            $this->worker = new WorkerSender($this->queue->getClient());
         }
 
         return $this->worker;
