@@ -5,7 +5,7 @@ $finder = PhpCsFixer\Finder::create()
         'vendor',
         '.git',
     ])
-    ->in(__DIR__ . "/../../");
+    ->in(__DIR__);
 
 $config = new PhpCsFixer\Config();
 
