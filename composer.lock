@@ -307,12 +307,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jafaripur/php-microservice.git",
-                "reference": "f2530fd73d4b0be7c4688dbcd8c29463504d7429"
+                "reference": "a1eb149510595d3137c10a236fb5fdaf19b6a308"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jafaripur/php-microservice/zipball/f2530fd73d4b0be7c4688dbcd8c29463504d7429",
-                "reference": "f2530fd73d4b0be7c4688dbcd8c29463504d7429",
+                "url": "https://api.github.com/repos/jafaripur/php-microservice/zipball/a1eb149510595d3137c10a236fb5fdaf19b6a308",
+                "reference": "a1eb149510595d3137c10a236fb5fdaf19b6a308",
                 "shasum": ""
             },
             "require": {
@@ -368,7 +368,7 @@
                 "issues": "https://github.com/jafaripur/php-microservice/issues",
                 "source": "https://github.com/jafaripur/php-microservice"
             },
-            "time": "2022-03-09T08:22:06+00:00"
+            "time": "2022-03-14T10:51:59+00:00"
         },
         {
             "name": "psr/container",

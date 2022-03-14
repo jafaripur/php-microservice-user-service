@@ -20,7 +20,7 @@ final class WorkerSender
         $this->client = $client;
     }
 
-    public function userProfileAnalysis(mixed $data, int $priority = 0, int $expiration = 0, int $delay = 0): mixed
+    public function userProfileAnalysis(mixed $data, int $priority = 0, int $expiration = 0, int $delay = 0): ?string
     {
         return $this->client->worker()
             ->setQueueName(self::ACTIONS['userProfileAnalysis'][0])
@@ -32,7 +32,7 @@ final class WorkerSender
             ->send();
     }
 
-    public function userProfileUpdateNotification(mixed $data, int $priority = 0, int $expiration = 0, int $delay = 0): mixed
+    public function userProfileUpdateNotification(mixed $data, int $priority = 0, int $expiration = 0, int $delay = 0): ?string
     {
         return $this->client->worker()
             ->setQueueName(self::ACTIONS['userProfileUpdateNotification'][0])

@@ -19,7 +19,7 @@ final class EmitSender
         $this->client = $client;
     }
 
-    public function userLoggedIn(mixed $data, int $delay = 0): mixed
+    public function userLoggedIn(mixed $data, int $delay = 0): ?string
     {
         return $this->client->emit()
             ->setTopicName(self::ACTIONS['userLoggedIn'])

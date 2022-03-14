@@ -24,7 +24,7 @@ final class TopicSender
         $this->client = $client;
     }
 
-    public function userChanged(string $routingKey, mixed $data, int $delay = 0): mixed
+    public function userChanged(string $routingKey, mixed $data, int $delay = 0): ?string
     {
         if (!in_array($routingKey, self::ROUTING_KEYS, true)) {
             throw new \LogicException(sprintf('Routing key not available: %s', $routingKey));
