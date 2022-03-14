@@ -4,6 +4,8 @@ This library is written to easy use of micro service methods for interaction. Ea
 
 Sample application used this library:
 
+Symfony framework: [jafaripur/php-microservice-application-symfony](https://github.com/jafaripur/php-microservice-application-symfony)
+
 Spiral framework: [jafaripur/php-microservice-application](https://github.com/jafaripur/php-microservice-application)
 
 Yii3 framework: [jafaripur/php-microservice-application-yii3](https://github.com/jafaripur/php-microservice-application-yii3)
