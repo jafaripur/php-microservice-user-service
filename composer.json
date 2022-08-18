@@ -22,7 +22,7 @@
         "docs": "https://github.com/jafaripur/php-microservice-user-service/blob/master/README.md"
     },
     "require": {
-        "php" : "^8.0",
+        "php" : "^8.1",
         "jafaripur/php-microservice": "dev-master"
     },
     "require-dev": {

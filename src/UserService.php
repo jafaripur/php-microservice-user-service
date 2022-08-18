@@ -1,7 +1,7 @@
 <?php
 
 /**
- * User service implement
+ * User service implement.
  */
 
 declare(strict_types=1);
@@ -19,8 +19,11 @@ final class UserService
     private Queue $queue;
 
     private ?CommandSender $command = null;
+
     private ?TopicSender $topic = null;
+
     private ?EmitSender $emit = null;
+
     private ?WorkerSender $worker = null;
 
     public function __construct(Queue $queue)

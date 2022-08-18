@@ -11,11 +11,11 @@ use Araz\MicroService\Sender\CommandSender as MainCommandSender;
 
 final class CommandSender
 {
-    private Client $client;
-
     public const ACTIONS = [
         'getUserInformation' => ['user_service_command', 'get_profile_info'],
     ];
+
+    private Client $client;
 
     public function __construct(Client $client)
     {
@@ -29,7 +29,8 @@ final class CommandSender
             ->setJobName(self::ACTIONS['getUserInformation'][1])
             ->setData($data)
             ->setPriority($priority)
-            ->send();
+            ->send()
+        ;
     }
 
     public function async(int $timeout = AsyncSender::COMMAND_ASYNC_MESSAGE_TIMEOUT): CommandAsyncSender

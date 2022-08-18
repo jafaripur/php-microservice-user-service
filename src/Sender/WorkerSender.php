@@ -8,12 +8,12 @@ use Araz\MicroService\Sender\Client;
 
 final class WorkerSender
 {
-    private Client $client;
-
     public const ACTIONS = [
         'userProfileAnalysis' => ['user_service_worker', 'user_profile_analysis'],
         'userProfileUpdateNotification' => ['user_service_worker', 'user_profile_update_notification'],
     ];
+
+    private Client $client;
 
     public function __construct(Client $client)
     {
@@ -29,7 +29,8 @@ final class WorkerSender
             ->setPriority($priority)
             ->setExpiration($expiration)
             ->setDelay($delay)
-            ->send();
+            ->send()
+        ;
     }
 
     public function userProfileUpdateNotification(mixed $data, int $priority = 0, int $expiration = 0, int $delay = 0): ?string
@@ -41,6 +42,7 @@ final class WorkerSender
             ->setPriority($priority)
             ->setExpiration($expiration)
             ->setDelay($delay)
-            ->send();
+            ->send()
+        ;
     }
 }

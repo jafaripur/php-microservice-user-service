@@ -1,7 +1,7 @@
 <?php
 
 /**
- * User service implement
+ * User service implement.
  */
 
 declare(strict_types=1);
@@ -24,6 +24,7 @@ final class CommandAsyncSender
     public function getUserInformation(mixed $data, string $correlationId, int $timeout, int $priority = 0): self
     {
         $this->asyncSender->command(CommandSender::ACTIONS['getUserInformation'][0], CommandSender::ACTIONS['getUserInformation'][1], $data, $correlationId, $timeout, $priority);
+
         return $this;
     }
 
