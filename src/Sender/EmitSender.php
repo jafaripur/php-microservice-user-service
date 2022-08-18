@@ -8,11 +8,11 @@ use Araz\MicroService\Sender\Client;
 
 final class EmitSender
 {
-    private Client $client;
-
     public const ACTIONS = [
         'userLoggedIn' => 'user_logged_in',
     ];
+
+    private Client $client;
 
     public function __construct(Client $client)
     {
@@ -25,6 +25,7 @@ final class EmitSender
             ->setTopicName(self::ACTIONS['userLoggedIn'])
             ->setData($data)
             ->setDelay($delay)
-            ->send();
+            ->send()
+        ;
     }
 }

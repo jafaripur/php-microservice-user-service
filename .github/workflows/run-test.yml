@@ -34,14 +34,14 @@ jobs:
     - name: Validate composer.json and composer.lock
       uses: php-actions/composer@v6
       with:
-        php_version: 8.0
+        php_version: 8.1
         command: validate
         args: --strict
 
     - name: Install dependencies
       uses: php-actions/composer@v6
       with:
-        php_version: 8.0
+        php_version: 8.1
         command: install
         php_extensions: amqp
         args: -o -a
@@ -50,13 +50,13 @@ jobs:
     - name: Run Psalm
       uses: php-actions/composer@v6
       with:
-        php_version: 8.0
+        php_version: 8.1
         command: run-script
         args: psalm
 
     - name: Run PHPLint
       uses: php-actions/composer@v6
       with:
-        php_version: 8.0
+        php_version: 8.1
         command: run-script
         args: phplint

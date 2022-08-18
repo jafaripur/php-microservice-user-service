@@ -8,13 +8,13 @@ use Araz\MicroService\Sender\Client;
 
 final class TopicSender
 {
+    public const ACTIONS = [
+        'userChanged' => 'user_changed',
+    ];
+
     private const ROUTING_KEYS = [
         'user_topic_create',
         'user_topic_update',
-    ];
-
-    public const ACTIONS = [
-        'userChanged' => 'user_changed',
     ];
 
     private Client $client;
@@ -35,7 +35,8 @@ final class TopicSender
             ->setRoutingKey($routingKey)
             ->setData($data)
             ->setDelay($delay)
-            ->send();
+            ->send()
+        ;
     }
 
     public function getRoutingKeyUserTopicCreate(): string
